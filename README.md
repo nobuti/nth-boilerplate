@@ -22,8 +22,10 @@ For each media query you have to define a grid as in:
   $grid-columns: 8;
   $grid-gutter-width: 20px;
   $grid-total-width: 320px; 
+  // this is calculated automatically:
+  $grid-col-width: ( $grid-total-width / $grid-columns) - $grid-gutter-width;
 ```
-In this example columns will measure 20px width, and will have 10px space around them (total content space will be 300px although you can use 100% width as well). This way you dont have to care about first or last elements spanning to several rows, every block will accomodate accordingly.
+In this example columns will measure 20px width (calculated by compass), and will have 10px space around them since we are using half the gutter for side margins. This way you dont have to care about first or last elements spanning to several rows, every block will accomodate accordingly. Total content space will be 300px although you can use 100% width as well.
 
 ## Dependencies
 [Compass](http://compass-style.org/)
