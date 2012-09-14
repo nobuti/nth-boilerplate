@@ -1,0 +1,204 @@
+/* -------------------------------------------------------- */
+/* CSS developed using Sass/Compass locally.  
+/* DO NOT EDIT THIS .CSS, it will be overwritten from .SCSS
+/* -------------------------------------------------------- */
+
+@import "compass";
+@import "compass/reset";
+@import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
+
+
+/* reset HR as well */
+hr {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Use MS box model: */
+/* http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+* { 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+///* -------------------------------------------------------- */
+///* GENERAL MIXINS
+///* -------------------------------------------------------- */
+@mixin no-bullet {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0; }
+@mixin float($direction) { float: $direction; }
+@mixin horizontal-list-container {
+  @include reset-box-model;
+  @include clearfix; }
+@mixin horizontal-list-item($padding: 0px, $direction: left) {
+  @include no-bullet;
+  white-space: nowrap;
+  @include float($direction);
+  @if $padding {
+    padding: {
+      left: $padding;
+      right: $padding; };
+    &:first-child, &.first {
+      padding-#{$direction}: 0; }
+    &:last-child {
+      padding-#{opposite-position($direction)}: 0; }
+    &.last {
+      padding-#{opposite-position($direction)}: 0; } } }
+@mixin horizontal-list($padding: 0px, $direction: left) {
+  @include horizontal-list-container;
+  li {
+    @include horizontal-list-item($padding, $direction); } 
+}
+
+@mixin mauto() {
+  margin-left: auto;
+  margin-right: auto;
+}
+@mixin clearfix {
+  overflow: hidden;
+  *zoom: 1;
+  clear: both;
+}
+
+
+/* -------------------------------------------------------- */
+/* GENERAL LAYOUT, SIZES, DISTANCES…
+/* MOBILE FIRST
+/* -------------------------------------------------------- */
+
+body {
+  position: relative;
+  overflow: hidden; 
+  font-size: 16px;
+  line-height: 20px;
+  width: 320px;
+  margin: 0 auto;
+}
+
+/* -------------------------------------------------------- HEADER */
+#header {
+  clear: both;
+  width: 100%;
+  margin: 0 auto; 
+}
+/* -------------------------------------------------------- MAIN CONTENT */
+.wrapper {
+  clear: both;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* -------------------------------------------------------- ARTICLES */
+/* -------------------------------------------------------- FOOTER */ 
+#footer {
+  clear: both;
+  width: 100%;
+  margin: 0 auto; 
+}
+
+
+/* -------------------------------------------------------- */
+/* MEDIA QUERIES GRIDS AND FUNCTIONS
+/* -------------------------------------------------------- */
+
+///* breakpoints  */
+///* these respond to a 960 grid (24 cols, 20px width, 20px gutter (10px lateral margins) */
+$break-smart: 320px;        ///* 8 cols */
+$break-smart-land: 480px;   ///* 12 cols */
+$break-tablet: 640px;       ///* 16 cols */
+$break-tablet-land: 800px;  ///* 20 cols */
+$break-wide: 960px;         ///* 24 cols */
+
+
+// default values needed to define mixin gridcol:
+$grid-columns: 8;
+$grid-gutter-width: 20px;
+$grid-total-width: 320px; 
+$grid-col-width: ( $grid-total-width / $grid-columns) - $grid-gutter-width;
+
+@mixin gridcol($n, $colsgap:0, $offset:0) {
+  $gap : $colsgap * ($grid-gutter-width + $grid-col-width);
+  display: inline-block;
+  float: left;
+  margin-left: ( $grid-gutter-width / 2 ) + $offset + $gap;
+  margin-right: ( $grid-gutter-width / 2 );
+  width: ( ($grid-gutter-width + $grid-col-width) * $n ) - $grid-gutter-width;
+}
+
+/* -------------------------------------------------------- MQ: MOBILE */
+@media screen and (min-width: 0) { // IF MOBILE FIRST, DONT ACTUALLY NEED THIS MQ
+  $grid-columns: 8;
+  $grid-gutter-width: 20px;
+  $grid-total-width: 320px; 
+  $grid-col-width: ( $grid-total-width / $grid-columns) - $grid-gutter-width;
+    
+
+  body { width: $grid-total-width; }
+  #header { width: $grid-total-width; }
+  .wrapper { @include gridcol($grid-columns); }
+  #footer { width: $grid-total-width; }
+}
+
+/* -------------------------------------------------------- MQ: MOBILE-LANDSCAPE */
+@media screen and (min-width: $break-smart-land) and (max-width: $break-tablet - 1) { 
+  $grid-columns: 12;
+  $grid-gutter-width: 20px;
+  $grid-total-width: 480px; 
+  $grid-col-width: ( $grid-total-width / $grid-columns) - $grid-gutter-width;
+    
+
+  body { width: $grid-total-width; }
+  #header { width: $grid-total-width; }
+  .wrapper { @include gridcol($grid-columns); }
+  #footer { width: $grid-total-width; }
+}
+
+/* -------------------------------------------------------- MQ: TABLET */
+@media screen and (min-width: $break-tablet) and (max-width: $break-tablet-land - 1) { 
+  $grid-columns: 16;
+  $grid-gutter-width: 20px;
+  $grid-total-width: 640px; 
+  $grid-col-width: ( $grid-total-width / $grid-columns) - $grid-gutter-width;
+    
+
+  body { width: $grid-total-width; }
+  #header { width: $grid-total-width; }
+  .wrapper { @include gridcol($grid-columns); }
+  #footer { width: $grid-total-width; }
+}
+
+/* -------------------------------------------------------- MQ: TABLET-LANDSCAPE */
+@media screen and (min-width: $break-tablet-land) and (max-width: $break-wide - 1) { 
+  $grid-columns: 20;
+  $grid-gutter-width: 20px;
+  $grid-total-width: 800px; 
+  $grid-col-width: ( $grid-total-width / $grid-columns) - $grid-gutter-width;
+    
+
+  body { width: $grid-total-width; }
+  #header { width: $grid-total-width; }
+  .wrapper { @include gridcol($grid-columns); }
+  #footer { width: $grid-total-width; }
+}
+
+/* -------------------------------------------------------- MQ: DESKTOP */
+@media screen and (min-width: $break-wide)  { 
+  $grid-columns: 24;
+  $grid-gutter-width: 20px;
+  $grid-total-width: 960px; 
+  $grid-col-width: ( $grid-total-width / $grid-columns) - $grid-gutter-width;
+    
+  
+  body { width: $grid-total-width; }
+  #header { width: $grid-total-width; }
+  .wrapper { @include gridcol($grid-columns); }
+  #footer { width: $grid-total-width; }
+}
+

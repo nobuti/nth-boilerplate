@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Sergi Meseguer -- Frontend, UI -- @zigotica
+    …
+
+# THANKS
+
+    …
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, compass, unicon-sass
+    jQuery

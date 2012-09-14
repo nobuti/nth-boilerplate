@@ -1,0 +1,186 @@
+@charset "UTF-8";
+/* -------------------------------------------------------- */
+/* CSS developed using Sass/Compass locally.  
+/* DO NOT EDIT THIS .CSS, it will be overwritten from .SCSS
+/* -------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+/* reset HR as well */
+hr {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* Use MS box model: */
+/* http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* -------------------------------------------------------- */
+/* GENERAL LAYOUT, SIZES, DISTANCES…
+/* MOBILE FIRST
+/* -------------------------------------------------------- */
+body {
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 20px;
+  width: 320px;
+  margin: 0 auto; }
+
+/* -------------------------------------------------------- HEADER */
+#header {
+  clear: both;
+  width: 100%;
+  margin: 0 auto; }
+
+/* -------------------------------------------------------- MAIN CONTENT */
+.wrapper {
+  clear: both;
+  width: 100%;
+  margin: 0 auto; }
+
+/* -------------------------------------------------------- ARTICLES */
+/* -------------------------------------------------------- FOOTER */
+#footer {
+  clear: both;
+  width: 100%;
+  margin: 0 auto; }
+
+/* -------------------------------------------------------- */
+/* MEDIA QUERIES GRIDS AND FUNCTIONS
+/* -------------------------------------------------------- */
+/* -------------------------------------------------------- MQ: MOBILE */
+@media screen and (min-width: 0) {
+  body {
+    width: 320px; }
+
+  #header {
+    width: 320px; }
+
+  .wrapper {
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 300px; }
+
+  #footer {
+    width: 320px; } }
+/* -------------------------------------------------------- MQ: MOBILE-LANDSCAPE */
+@media screen and (min-width: 480px) and (max-width: 639px) {
+  body {
+    width: 480px; }
+
+  #header {
+    width: 480px; }
+
+  .wrapper {
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 460px; }
+
+  #footer {
+    width: 480px; } }
+/* -------------------------------------------------------- MQ: TABLET */
+@media screen and (min-width: 640px) and (max-width: 799px) {
+  body {
+    width: 640px; }
+
+  #header {
+    width: 640px; }
+
+  .wrapper {
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 620px; }
+
+  #footer {
+    width: 640px; } }
+/* -------------------------------------------------------- MQ: TABLET-LANDSCAPE */
+@media screen and (min-width: 800px) and (max-width: 959px) {
+  body {
+    width: 800px; }
+
+  #header {
+    width: 800px; }
+
+  .wrapper {
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 780px; }
+
+  #footer {
+    width: 800px; } }
+/* -------------------------------------------------------- MQ: DESKTOP */
+@media screen and (min-width: 960px) {
+  body {
+    width: 960px; }
+
+  #header {
+    width: 960px; }
+
+  .wrapper {
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 940px; }
+
+  #footer {
+    width: 960px; } }
